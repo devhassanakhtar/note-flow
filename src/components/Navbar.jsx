@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -14,7 +15,8 @@ const Navbar = () => {
 
   return (
     <nav className="h-[80px] shrink-0 flex items-center justify-between px-10 border-b border-gray-200 shadow-md bg-white">
-      <Link href="/" className="font-bold text-3xl tracking-tighter font">
+      <Link href="/" className="flex items-center gap-3 font-bold text-3xl tracking-tighter font">
+        <Image src="/logo.png" width={40} height={40} alt="logo"/>
         Note <span className="text-[#684ADA]">Flow</span>
       </Link>
 
