@@ -61,8 +61,8 @@ const EditNotePage = () => {
   }
 
   return (
-    <main className="flex h-screen overflow-hidden px-10 custom-bg text-black">
-      <div className="h-full w-[300px] shrink-0 py-10">
+    <main className="flex min-h-screen flex-col overflow-y-auto px-4 custom-bg text-black sm:px-6 lg:flex-row lg:overflow-hidden lg:px-10">
+      <div className="w-full shrink-0 py-6 lg:h-full lg:w-[300px] lg:py-10">
         <button
           onClick={() => router.back()}
           className="flex w-fit cursor-pointer items-center gap-3 rounded-md border border-gray-400 px-4 py-2 transition hover:scale-[1.02] hover:bg-white/20"
@@ -72,16 +72,16 @@ const EditNotePage = () => {
         </button>
       </div>
 
-      <div className="h-full flex-1 py-10">
+      <div className="h-full flex-1 py-2 pb-10 lg:py-10">
         <form onSubmit={handleUpdate}>
-          <h1 className="text-4xl font-bold">Edit Note</h1>
+          <h1 className="text-3xl font-bold sm:text-4xl">Edit Note</h1>
 
           <p className="mt-3 text-sm text-slate-600">
             Update your note details.
           </p>
 
-          <div className="mt-20 flex items-center gap-10">
-            <div className="flex w-[50%] flex-col">
+          <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-center lg:mt-20 lg:gap-10">
+            <div className="flex w-full flex-col md:w-[50%]">
               <label
                 htmlFor="title"
                 className="text-lg font-semibold text-gray-700"
@@ -99,7 +99,7 @@ const EditNotePage = () => {
               />
             </div>
 
-            <div className="flex w-[30%] flex-col">
+            <div className="flex w-full flex-col md:w-[30%]">
               <label
                 htmlFor="category"
                 className="text-lg font-semibold text-gray-700"
@@ -122,7 +122,7 @@ const EditNotePage = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex w-[84%] flex-col">
+          <div className="mt-8 flex w-full flex-col lg:w-[84%]">
             <label
               htmlFor="description"
               className="text-lg font-semibold text-gray-700"
@@ -139,7 +139,7 @@ const EditNotePage = () => {
             ></textarea>
           </div>
 
-          <div className="mt-8 flex w-[84%] items-center justify-end gap-5">
+          <div className="mt-8 flex w-full flex-col-reverse items-stretch justify-end gap-3 sm:flex-row sm:items-center lg:w-[84%] lg:gap-5">
             <button
               type="button"
               onClick={() => router.back()}

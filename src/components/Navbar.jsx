@@ -14,16 +14,18 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="h-[80px] shrink-0 flex items-center justify-between px-10 border-b border-gray-200 shadow-md bg-white">
-      <Link href="/" className="flex items-center gap-3 font-bold text-3xl tracking-tighter font">
-        <Image src="/logo.png" width={40} height={40} alt="logo"/>
+    <nav className="min-h-[80px] shrink-0 flex flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-10 border-b border-gray-200 shadow-md bg-white">
+      <Link
+        href="/"
+        className="flex items-center gap-2 sm:gap-3 font-bold text-2xl sm:text-3xl tracking-tighter font"
+      >
+        <Image src="/logo.png" width={40} height={40} alt="logo" />
         Note <span className="text-[#684ADA]">Flow</span>
       </Link>
 
-      <ul className="flex items-center gap-6">
+      <ul className="order-3 flex w-full items-center justify-center gap-5 sm:order-none sm:w-auto sm:gap-6">
         {menuList.map((item) => {
-          const isActive =
-            pathname === item.href;
+          const isActive = pathname === item.href;
 
           return (
             <li key={item.href}>
@@ -48,7 +50,7 @@ const Navbar = () => {
 
       <Link
         href="/notes"
-        className="bg-[#684ADA] text-white px-3 py-2 rounded-md text-[15px] hover:scale-105 transition cursor-pointer"
+        className="bg-[#684ADA] text-white px-3 py-2 rounded-md text-sm sm:text-[15px] hover:scale-105 transition cursor-pointer"
       >
         Get Started
       </Link>

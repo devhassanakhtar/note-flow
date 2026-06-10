@@ -49,8 +49,8 @@ const Page = () => {
   };
 
   return (
-    <main className="flex h-[calc(100vh-80px)] overflow-hidden px-10 custom-bg text-black">
-      <div className="h-full w-[300px] shrink-0 py-10">
+    <main className="flex min-h-[calc(100vh-80px)] flex-col overflow-y-auto px-4 custom-bg text-black sm:px-6 lg:flex-row lg:overflow-hidden lg:px-10">
+      <div className="w-full shrink-0 py-6 lg:h-full lg:w-[300px] lg:py-10">
         <button
           onClick={() => router.back()}
           className="flex w-fit cursor-pointer items-center justify-between gap-3 rounded-md border border-gray-400 px-4 py-2 transition hover:scale-[1.02] hover:bg-white/20"
@@ -60,14 +60,15 @@ const Page = () => {
         </button>
       </div>
 
-      <div className="h-full flex-1 py-10 ">
+      <div className="h-full flex-1 py-2 pb-10 lg:py-10">
         <form action="">
-          <h1 className="text-4xl font-bold">Add New Note</h1>
+          <h1 className="text-3xl font-bold sm:text-4xl">Add New Note</h1>
           <p className="mt-3 text-sm text-slate-600">
             Fill in the details to create a new note.
           </p>
-          <div className="mt-20 flex items-center gap-10">
-            <div className="flex flex-col w-[50%]">
+
+          <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-center lg:mt-20 lg:gap-10">
+            <div className="flex w-full flex-col md:w-[50%]">
               <label
                 htmlFor="text"
                 className="font-semibold text-gray-700 text-lg"
@@ -85,7 +86,7 @@ const Page = () => {
               />
             </div>
 
-            <div className="flex flex-col w-[30%]">
+            <div className="flex w-full flex-col md:w-[30%]">
               <label
                 htmlFor="select"
                 className="font-semibold text-gray-700 text-lg"
@@ -118,7 +119,7 @@ const Page = () => {
             </div>
           </div>
 
-          <div className="flex flex-col w-[84%] mt-8">
+          <div className="flex w-full flex-col mt-8 lg:w-[84%]">
             <label
               htmlFor="desc"
               className="font-semibold text-gray-700 text-lg"
@@ -134,7 +135,8 @@ const Page = () => {
               className="border border-gray-400 px-3 py-2 rounded-md focus:outline-[#684ADA] resize-none"
             ></textarea>
           </div>
-          <div className="flex items-center justify-end mt-8 w-[84%] gap-5">
+
+          <div className="mt-8 flex w-full flex-col-reverse items-stretch justify-end gap-3 sm:flex-row sm:items-center lg:w-[84%] lg:gap-5">
             <button className="border px-4 py-2 rounded-lg border-gray-300 hover:scale-[1.02] cursor-pointer transition">
               Cancel
             </button>
@@ -149,7 +151,7 @@ const Page = () => {
         </form>
       </div>
 
-      <div className="flex h-full w-[700px] items-center  justify-center">
+      <div className="hidden h-full w-[350px] items-center justify-center xl:flex 2xl:w-[700px]">
         <Image src="/note2.png" width={300} height={300} alt="Note image" />
       </div>
     </main>

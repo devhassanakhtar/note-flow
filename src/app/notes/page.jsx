@@ -1,5 +1,3 @@
-//
-
 "use client";
 
 import Sidebar from "@/components/Sidebar";
@@ -81,7 +79,7 @@ const Page = () => {
   };
 
   return (
-    <main className="flex flex-1 overflow-hidden">
+    <main className="flex min-h-[calc(100vh-80px)] flex-1 flex-col overflow-hidden md:flex-row">
       <Sidebar
         notes={notes}
         selectedCategory={selectedCategory}
@@ -90,10 +88,12 @@ const Page = () => {
         setSearch={setSearch}
       />
 
-      <section className="flex flex-1 flex-col overflow-hidden bg-[#F8F3FE] p-6">
-        <div className="flex shrink-0 items-center justify-between rounded-2xl bg-white px-6 py-5 shadow-sm">
+      <section className="flex min-h-0 flex-1 flex-col overflow-hidden bg-[#F8F3FE] p-3 sm:p-6">
+        <div className="flex shrink-0 flex-col gap-4 rounded-2xl bg-white px-4 py-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div>
-            <h2 className="text-2xl font-bold text-slate-900 font">All Notes</h2>
+            <h2 className="text-2xl font-bold text-slate-900 font">
+              All Notes
+            </h2>
             <p className="mt-1 text-sm text-slate-500">
               {filteredNotes.length} notes
             </p>
@@ -101,20 +101,22 @@ const Page = () => {
 
           <Link
             href="/addnotes"
-            className="flex items-center gap-2 rounded-lg bg-[#684ADA] px-4 py-2.5 text-sm font-medium text-white transition hover:scale-105"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#684ADA] px-4 py-2.5 text-sm font-medium text-white transition hover:scale-105 sm:w-fit"
           >
             <Plus size={18} />
-             {selectedCategory === "All" ? "All Notes" : selectedCategory}
+            {selectedCategory === "All" ? "All Notes" : selectedCategory}
           </Link>
         </div>
 
-        <div className="mt-6 flex-1 rounded-2xl bg-white p-6 shadow-sm overflow-y-auto">
+        <div className="mt-4 flex-1 overflow-y-auto rounded-2xl bg-white p-4 shadow-sm sm:mt-6 sm:p-6">
           {filteredNotes.length === 0 ? (
-            <div className="flex h-full items-center justify-center">
-              <p className="text-slate-500">No notes found in this category.</p>
+            <div className="flex h-full min-h-[250px] items-center justify-center">
+              <p className="text-center text-slate-500">
+                No notes found in this category.
+              </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {filteredNotes.map((note, index) => {
                 const Icon = categoryIcons[note.category] || FileText;
                 const colors =
@@ -139,7 +141,7 @@ const Page = () => {
                       {note.category}
                     </span>
 
-                    <p className="mt-3  line-clamp-2 text-sm text-slate-500">
+                    <p className="mt-3 line-clamp-2 text-sm text-slate-500">
                       {note.description}
                     </p>
 
